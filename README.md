@@ -5,6 +5,7 @@ TeeAssembler 3.0 AngularJS is a script used for coloring a TeeWorlds/DDNet skins
 ## Contact
 
 You can contact me on Discord for anything related to the fork of the original project: everestkio
+
 Contact of the original project owner: .alexander_
 
 ---
