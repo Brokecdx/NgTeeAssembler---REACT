@@ -5,7 +5,7 @@ TeeAssembler 3.0 AngularJS is a script used for coloring a TeeWorlds/DDNet skins
 ---
 ## Credits
 
-Converted to TypeScript and implemented in an AngularJS library by Samuele Radici (kio)
+Converted to TypeScript and implemented in an AngularJS library by **Samuele Radici (kio)**
 
 Thanks to [b0th#6474](https://github.com/theobori) for helping Aleksandar with the original project.
 And thanks thank you Aleksandar for helping me and allowing me to do this project
