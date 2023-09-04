@@ -26,9 +26,11 @@ Pack: `npm run pack-lib`
 ---
 ## Usage
 
-Installation: `npm i ng-tee-assembler`
+#### Installation: 
 
-Importing inside a component module: 
+`npm i ng-tee-assembler`
+
+#### Importing inside a component module: 
 
 ```JS
 
@@ -53,7 +55,7 @@ import { NgTeeAssemblerModule } from "ng-tee-assembler";
 export class AppModule { }
 
 ```
-Implementation:
+#### Implementation:
 
 ```html
 <!DOCTYPE html>
@@ -73,20 +75,20 @@ Implementation:
 </html>
 ```
 
-##### Automatic Rendering (No coloring)
+#### Automatic Rendering (No coloring)
 
 ```html
 <render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse'></render-tee>
 ```
 
-##### Automatic Rendering (With coloring)
+#### Automatic Rendering (With coloring)
 
 ```html
 <render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-bodycolor='13149440' data-feetcolor='255' data-coloringmode='code'></render-tee>
 
 ```
 
-##### You can also make eyes look at the mouse
+#### You can also make eyes look at the mouse
 
 ```html
 <render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-lookmouse="true"></render-tee>
@@ -94,7 +96,7 @@ Implementation:
 ```
 Note: The value of data-lookmouse must be "true" to set it to false you can simply remove the data attribute
 
-##### You can also add an angle to the eyes
+#### You can also add an angle to the eyes
 
 ```html
 <render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-look="90"></render-tee>
