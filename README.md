@@ -2,20 +2,6 @@
 
 TeeAssembler 3.0 AngularJS is a script used for coloring a TeeWorlds/DDNet skins image the same way TeeWorlds/DDNet does and rendering the image in your browser using only CSS and TypeScript (and animate the eyes), you can implement it in your AngularJs project using `npm i ng-tee-assembler`.
 
-## Contact
-
-You can contact me on Discord for anything related to the fork of the original project: everestkio
-
-Contact of the original project owner: .alexander_
-
----
-## License
-
-Copyright (c) 2022 Aleksandar Blažić
-Copyright (c) 2023 Samuele Radici
-
-Licensed under the [MIT](https://github.com/AlexIsTheGuy/TeeAssembler-2.0/blob/main/LICENSE) license.
-
 ---
 ## Credits
 
@@ -119,3 +105,19 @@ Note: The value of data-look is the angle and must be an int
 ## Known issues
 
 - Eyes are not perfectly aligned like in the game but it's close enough.
+
+
+## Contact
+
+You can contact me on Discord for anything related to the fork of the original project: everestkio
+
+Contact of the original project owner: .alexander_
+
+---
+## License
+
+Copyright (c) 2022 Aleksandar Blažić
+Copyright (c) 2023 Samuele Radici
+
+Licensed under the [MIT](https://github.com/AlexIsTheGuy/TeeAssembler-2.0/blob/main/LICENSE) license.
+
