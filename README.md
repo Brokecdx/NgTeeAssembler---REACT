@@ -109,6 +109,14 @@ Note: The value of data-lookmouse must be "true" to set it to false you can simp
 ```
 Note: The value of data-look is the angle and must be an int
 
+#### Set an attibute with a variable
+
+```html
+<render-tee [attr.data-skinimage]="variablename" [attr.data-look]="variablename2"></render-tee>
+
+```
+Note: The variable must be declared in the ts compositor
+
 ---
 
 ## Known issues
