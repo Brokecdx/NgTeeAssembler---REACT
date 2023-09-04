@@ -9,7 +9,7 @@ Converted to TypeScript and implemented in an AngularJS library by **Samuele Rad
 
 Thanks to [b0th#6474](https://github.com/theobori) for helping Aleksandar with the original project.
 
-And thanks thank you Aleksandar for helping me and allowing me to do this project
+And thanks thank you [.alexander](https://github.com/AlexIsTheGuy) for helping me and allowing me to do this project
 
 ## Project Infos
 
