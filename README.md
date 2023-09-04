@@ -126,6 +126,7 @@ Contact of the original project owner: .alexander_
 ## License
 
 Copyright (c) 2022 Aleksandar Blažić
+
 Copyright (c) 2023 Samuele Radici
 
 Licensed under the [MIT](https://github.com/AlexIsTheGuy/TeeAssembler-2.0/blob/main/LICENSE) license.
