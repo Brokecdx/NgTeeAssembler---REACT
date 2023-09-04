@@ -11,8 +11,8 @@ Thanks to [b0th#6474](https://github.com/theobori) for helping Aleksandar with t
 
 And thanks thank you Aleksandar for helping me and allowing me to do this project
 
-Project Infos
---
+## Project Infos
+
 Base project: [tw-utils](https://github.com/theobori/tw-utils).
 
 Original project: [TeeAssembler-2.0](https://github.com/AlexIsTheGuy/TeeAssembler-2.0).
