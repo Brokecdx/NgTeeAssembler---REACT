@@ -35,6 +35,7 @@ Pack: `npm run pack-lib`
 
 `npm i ng-tee-assembler`
 
+
 #### Importing inside a component module: 
 
 ```JS
@@ -60,6 +61,8 @@ import { NgTeeAssemblerModule } from "ng-tee-assembler";
 export class AppModule { }
 
 ```
+
+
 #### Implementation:
 
 ```html
@@ -101,6 +104,7 @@ export class AppModule { }
 ```
 Note: The value of data-lookmouse must be "true" to set it to false you can simply remove the data attribute
 
+
 #### You can also add an angle to the eyes
 
 ```html
@@ -109,6 +113,7 @@ Note: The value of data-lookmouse must be "true" to set it to false you can simp
 ```
 Note: The value of data-look is the angle and must be an int
 
+
 #### Set an attibute with a variable
 
 ```html
@@ -116,6 +121,8 @@ Note: The value of data-look is the angle and must be an int
 
 ```
 Note: The variable must be declared in the ts component
+
+
 
 ---
 
