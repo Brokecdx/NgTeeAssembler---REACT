@@ -1,6 +1,6 @@
 {
   "name": "ng-tee-assembler",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "peerDependencies": {
     "@angular/common": "^16.0.0",
     "@angular/core": "^16.0.0"
