@@ -134,7 +134,7 @@ Note: The variable must be declared in the ts component
 - Eyes are not perfectly aligned like in the game but it's close enough.
 
 
---
+---
 
 ## Preview
 
