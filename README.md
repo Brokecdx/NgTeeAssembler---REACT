@@ -134,6 +134,15 @@ Note: The variable must be declared in the ts component
 - Eyes are not perfectly aligned like in the game but it's close enough.
 
 
+--
+
+## Preview
+
+![image](https://github.com/k-i-o/NgTeeAssembler/assets/68398653/714e0940-6a2e-4fe1-8a5e-7e2c58c12935)
+![image](https://github.com/k-i-o/NgTeeAssembler/assets/68398653/c3480135-ca0d-4093-a742-92f71b481f38)
+![demo](https://github.com/k-i-o/NgTeeAssembler/assets/68398653/a2510abb-9cfc-42b3-b19d-62203de40949)
+
+
 ## Contact
 
 You can contact me on Discord for anything related to the fork of the original project: everestkio
