@@ -61,23 +61,15 @@ export class Tee {
 
       (async () => {
         let style = document.createElement('style');
+        
+        let bodycolor = this.container?.parentElement?.getAttribute('data-bodycolor');
+        let feetcolor = this.container?.parentElement?.getAttribute('data-feetcolor');
 
-        if (
-          this.container?.parentElement?.getAttribute('data-bodycolor') !==
-            null &&
-          this.container?.parentElement?.getAttribute('data-feetcolor') !== null
-        ) {
-          await this.getTeeImage(
-            this.container?.parentElement?.getAttribute(
-              'data-bodycolor'
-            ) as string,
-            this.container?.parentElement?.getAttribute(
-              'data-feetcolor'
-            ) as string,
-            this.container?.parentElement?.getAttribute(
-              'data-coloringmode'
-            ) as string
-          );
+        if(bodycolor == '' || bodycolor == "-1") bodycolor = null;
+        if(feetcolor == '' || bodycolor == "-1") feetcolor = null;
+
+        if ( bodycolor !== null && feetcolor !== null) {
+          await this.getTeeImage(this.container?.parentElement?.getAttribute('data-bodycolor') as string,this.container?.parentElement?.getAttribute('data-feetcolor') as string,this.container?.parentElement?.getAttribute('data-coloringmode') as string);
         } else {
           await this.getTeeImage();
         }
@@ -115,20 +107,18 @@ export class Tee {
   private d: number[] = [];
   private isBody: boolean = false;
   private container: HTMLElement | undefined;
-  private imageResult: string = '';
-  private bodyColor: string = '';
-  private feetColor: string = '';
-  private coloringMode: string = '';
+  private imageResult: string = "";
+  private bodyColor: string = "";
+  private feetColor: string = "";
+  private coloringMode: string = "";
   private markerCoord: { x: any; y: any } = { x: 0, y: 0 };
   private marker: any;
   private scale: number = 0;
   private teeEyes: any;
   private line: any;
   private eyeMoveEvent: void | undefined;
-  private moveTeeEyesFunction:
-    | ((e: MouseEvent) => void | undefined)
-    | undefined;
-  private originCoord: any;
+  private moveTeeEyesFunction: ((e: MouseEvent) => void | undefined) | undefined;
+  private originCoord : any;
 
   constructor(imageLink: string, container?: HTMLElement) {
     this.teeArray.push(this);
@@ -155,6 +145,7 @@ export class Tee {
     if (container) {
       this.setContainer(container);
     }
+
   }
 
   async loadImage(imageLink: string) {
@@ -177,12 +168,13 @@ export class Tee {
   };
 
   setColor(color: Color, mode: string) {
-    if (this.currentImgData === undefined) return;
+    if(this.currentImgData === undefined) return;
     let buffer = this.currentImgData.data;
     let r, g, b, a, byte;
 
     // Apply color on every pixel of the img
     for (byte = 0; byte < buffer.length; byte += 4) {
+      
       // Get pixel
       r = buffer[byte];
       g = buffer[byte + 1];
@@ -205,7 +197,7 @@ export class Tee {
   }
 
   reorderBody() {
-    if (this.currentImgData === undefined) return;
+    if(this.currentImgData === undefined) return;
 
     let frequencies = Array(256).fill(0);
     let orgWeight = 0;
@@ -218,18 +210,23 @@ export class Tee {
 
     // Find the most common frequence
     for (byte = 0; byte < buffer.length; byte += 4) {
+      
+
       if (buffer[byte + 3] > 128) {
         frequencies[buffer[byte]]++;
       }
     }
 
     for (let i = 1; i < 256; i++) {
+      
       if (frequencies[orgWeight] < frequencies[i]) {
         orgWeight = i;
       }
     }
 
     for (byte = 0; byte < buffer.length; byte += 4) {
+      
+
       let value = buffer[byte];
 
       if (value <= orgWeight && orgWeight == 0) {
@@ -254,7 +251,7 @@ export class Tee {
   }
 
   setCanvas() {
-    if (this.currentCtx === undefined) return;
+    if(this.currentCtx === undefined) return;
     this.currentCtx.putImageData(
       new ImageData(this.someImgData, this.d[2], this.d[3]),
       0,
@@ -303,11 +300,7 @@ export class Tee {
     this.setColor(newColor, 'default');
   }
 
-  async getTeeImage(
-    player_color_body = 'none',
-    player_color_feet = 'none',
-    coloring_mode = 'code'
-  ) {
+  async getTeeImage(player_color_body = 'none',player_color_feet = 'none',coloring_mode = 'code') {
     await this.loadImage(this.imageLink);
     player_color_body = player_color_body.toString();
     player_color_feet = player_color_feet.toString();
@@ -331,23 +324,14 @@ export class Tee {
           willReadFrequently: true,
         })!;
 
-        this.currentCtx.putImageData(
-          this.ctx.getImageData(this.d[0], this.d[1], this.d[2], this.d[3]),
-          0,
-          0
-        );
+        this.currentCtx.putImageData(this.ctx.getImageData(this.d[0], this.d[1], this.d[2], this.d[3]),0,0);
 
         if (body_parts[part] === 'body') {
           this.isBody = true;
         } else {
           this.isBody = false;
         }
-        this.currentImgData = this.currentCtx.getImageData(
-          0,
-          0,
-          this.d[2],
-          this.d[3]
-        );
+        this.currentImgData = this.currentCtx.getImageData(0,0,this.d[2],this.d[3]);
 
         if (player_color_body !== 'none' && player_color_feet !== 'none') {
           if (currentPart.includes('foot')) {
@@ -357,26 +341,15 @@ export class Tee {
           }
         }
 
-        if (
-          Object.keys(this.SKIN.elements)[body_parts.length - 1] === currentPart
-        ) {
-          this.ctx.clearRect(
-            0,
-            0,
-            this.ctx.canvas.clientWidth,
-            this.ctx.canvas.clientHeight
-          );
+        if (Object.keys(this.SKIN.elements)[body_parts.length - 1] === currentPart) {
+          this.ctx.clearRect(0,0,this.ctx.canvas.clientWidth,this.ctx.canvas.clientHeight);
 
           for (let i = 0; i < Object.keys(this.SKIN.elements).length; i++) {
-            let e = this.SKIN.elements[Object.keys(this.elements)[i]].map(
-              (x: any) => x * multiplier
-            );
+            
 
-            this.ctx.drawImage(
-              this.elements[Object.keys(this.elements)[i]],
-              e[0],
-              e[1]
-            );
+            let e = this.SKIN.elements[Object.keys(this.elements)[i]].map((x: any) => x * multiplier);
+
+            this.ctx.drawImage(this.elements[Object.keys(this.elements)[i]], e[0], e[1]);
 
             if (i === Object.keys(this.SKIN.elements).length - 1) {
               this.imageResult = this.canvas.toDataURL();
@@ -386,6 +359,7 @@ export class Tee {
               return this.imageResult;
             }
           }
+
         }
       }
     } else {
@@ -407,21 +381,19 @@ export class Tee {
   }
 
   teeEyesTranslateFunction() {
-    if (this.container !== undefined) {
-      this.markerCoord = {
+    if(this.container !== undefined){
+        this.markerCoord = {
         x: this.marker.getBoundingClientRect().x,
         y: this.marker.getBoundingClientRect().y,
-      };
-      this.scale =
-        this.container.getBoundingClientRect().width /
-        this.container.offsetWidth;
-      this.teeEyes.style.transform = `translate(${
+        };
+        this.scale = this.container.getBoundingClientRect().width / this.container.offsetWidth;
+        this.teeEyes.style.transform = `translate(${
         (this.markerCoord.x - this.container.getBoundingClientRect().x) /
         this.scale
-      }px, ${
+        }px, ${
         (this.markerCoord.y - this.container.getBoundingClientRect().y) /
         this.scale
-      }px)`;
+        }px)`;
     }
   }
 
@@ -437,25 +409,18 @@ export class Tee {
     this.setTeeEyesVariables();
 
     this.moveTeeEyesFunction = (e: MouseEvent) => {
+
       this.originCoord = {
         x: this.line.getBoundingClientRect().x.toFixed(),
         y: this.line.getBoundingClientRect().y.toFixed(),
       };
       this.eyesAngle =
-        (Math.atan2(
-          e.clientY - this.originCoord.y,
-          e.clientX - this.originCoord.x
-        ) *
-          180) /
-        Math.PI;
+        (Math.atan2(e.clientY - this.originCoord.y, e.clientX - this.originCoord.x) * 180) / Math.PI;
       this.line.style.transform = `translate(-1em, .5em) rotate(${this.eyesAngle}deg)`;
       this.teeEyesTranslateFunction();
     };
 
-    this.eyeMoveEvent = document.addEventListener(
-      'mousemove',
-      this.moveTeeEyesFunction
-    );
+    this.eyeMoveEvent = document.addEventListener('mousemove',this.moveTeeEyesFunction);
   }
 
   dontLookAtCursor() {

@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Tee } from '../Tee';
 import { isDigit } from '../Color';
@@ -11,35 +11,35 @@ import { isDigit } from '../Color';
 })
 export class NgTeeAssemblerComponent implements OnInit{
 
-  constructor() {}
+  constructor(private elRef:ElementRef) {}
 
   ngOnInit() {
-    document.querySelectorAll('.tee').forEach((el, i) => {
+    const el = this.elRef.nativeElement.querySelector('.tee');
+    const skinimage = el.parentElement?.getAttribute("data-skinimage");
+    if(skinimage) {
 
-      const skinimage = el.parentElement?.getAttribute("data-skinimage");
-      if(skinimage) {
+      const lookmouse = el.parentElement?.getAttribute("data-lookmouse");      
+      const look = el.parentElement?.getAttribute("data-look");      
 
-        const lookmouse = el.parentElement?.getAttribute("data-lookmouse");      
-        const look = el.parentElement?.getAttribute("data-look");      
-
-        const myTee = new Tee(skinimage, el as HTMLElement);
-        let size: string | undefined = (el as HTMLElement).parentElement?.getAttribute("data-size")?.replace("px", "");
-        if(size) {
-          (el as HTMLElement).style.fontSize = (parseInt(size)/100).toString() + "px";
-          (el as HTMLElement).style.height = size + "px";
-          (el as HTMLElement).style.width = size + "px";
-        }
-        if(lookmouse && lookmouse == "true") {
-          myTee.lookAtCursor();
-        }else if(look && isDigit(look)){
-          myTee.lookAt(parseInt(look));
-        }else{
-          myTee.lookAt(0);
-        }
+      const myTee = new Tee(skinimage, el as HTMLElement);
+      let size: string | undefined = (el as HTMLElement).parentElement?.getAttribute("data-size")?.replace("px", "");
+      if(!size) {
+        size = "92";
       }
-      
-    });
 
+      (el as HTMLElement).style.fontSize = (parseInt(size)/100).toString() + "px";
+      (el as HTMLElement).style.height = size + "px";
+      (el as HTMLElement).style.width = size + "px";
+    
+      if(lookmouse && lookmouse == "true") {
+        myTee.lookAtCursor();
+      }else if(look && isDigit(look)){
+        myTee.lookAt(parseInt(look));
+      }else{
+        myTee.lookAt(0);
+      }
+    }
+      
   }
 
 }

@@ -1,24 +1,135 @@
 # NgTeeAssembler
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+# TeeAssembler 3.0 AngularJS
 
-## Code scaffolding
+TeeAssembler 3.0 AngularJS is a script used for coloring a TeeWorlds/DDNet skins image the same way TeeWorlds/DDNet does and rendering the image in your browser using only CSS and TypeScript (and animate the eyes), you can implement it in your AngularJs project using `npm i ng-tee-assembler`.
 
-Run `ng generate component component-name --project ng-tee-assembler` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-tee-assembler`.
-> Note: Don't forget to add `--project ng-tee-assembler` or else it will be added to the default project in your `angular.json` file. 
+---
+## Credits
 
-## Build
+Converted to TypeScript and implemented in an AngularJS library by **Samuele Radici (kio)**
 
-Run `ng build ng-tee-assembler` to build the project. The build artifacts will be stored in the `dist/` directory.
+Thanks to [b0th#6474](https://github.com/theobori) for helping Aleksandar with the original project.
 
-## Publishing
+And thank you [.alexander](https://github.com/AlexIsTheGuy) for helping me and allowing me to do this project
 
-After building your library with `ng build ng-tee-assembler`, go to the dist folder `cd dist/ng-tee-assembler` and run `npm publish`.
+## Project Infos
 
-## Running unit tests
+Base project: [tw-utils](https://github.com/theobori/tw-utils).
 
-Run `ng test ng-tee-assembler` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Original project: [TeeAssembler-2.0](https://github.com/AlexIsTheGuy/TeeAssembler-2.0).
 
-## Further help
+---
+## Release
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The npm package is released on npmjs.com [ng-tee-assembler](https://www.npmjs.com/package/ng-tee-assembler).
+
+---
+## Exporting
+Build: `npm run build-library`
+
+Pack: `npm run pack-lib`
+
+---
+## Usage
+
+#### Installation: 
+
+`npm i ng-tee-assembler`
+
+#### Importing inside a component module: 
+
+```JS
+
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+
+...
+
+import { NgTeeAssemblerModule } from "ng-tee-assembler";
+
+@NgModule({
+    declarations: [
+        AppComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        ...,
+        NgTeeAssemblerModule
+    ]
+})
+export class AppModule { }
+
+```
+#### Implementation:
+
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+
+		...
+
+	</head>
+	<body>
+
+		...
+
+		<render-tee><render-tee>
+
+	</body>
+</html>
+```
+
+#### Automatic Rendering (No coloring)
+
+```html
+<render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse'></render-tee>
+```
+
+#### Automatic Rendering (With coloring)
+
+```html
+<render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-bodycolor='13149440' data-feetcolor='255' data-coloringmode='code'></render-tee>
+
+```
+
+#### You can also make eyes look at the mouse
+
+```html
+<render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-lookmouse="true"></render-tee>
+
+```
+Note: The value of data-lookmouse must be "true" to set it to false you can simply remove the data attribute
+
+#### You can also add an angle to the eyes
+
+```html
+<render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-look="90"></render-tee>
+
+```
+Note: The value of data-look is the angle and must be an int
+
+---
+
+## Known issues
+
+- Eyes are not perfectly aligned like in the game but it's close enough.
+
+
+## Contact
+
+You can contact me on Discord for anything related to the fork of the original project: everestkio
+
+Contact of the original project owner: .alexander_
+
+---
+## License
+
+Copyright (c) 2022 Aleksandar Blažić
+
+Copyright (c) 2023 Samuele Radici
+
+Licensed under the [MIT](https://github.com/k-i-o/NgTeeAssembler/blob/main/LICENSE) license.

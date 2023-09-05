@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  skin_name = 'https://api.skins.tw/database/skins/default.png';
+  skin_name = 'https://ddnet.org/skins/skin/community/ahl_shadow.png';
 }
