@@ -65,6 +65,9 @@ export class AppModule { }
 
 #### Implementation:
 
+## NOTE: YOU WILL HAVE TO CHOOSE A SIZE FOR THE TEE OR THE EYES CAN BE BUGGY
+
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -77,7 +80,7 @@ export class AppModule { }
 
 		...
 
-		<render-tee><render-tee>
+		<render-tee data-size="92px"><render-tee>
 
 	</body>
 </html>
@@ -86,20 +89,20 @@ export class AppModule { }
 #### Automatic Rendering (No coloring)
 
 ```html
-<render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse'></render-tee>
+<render-tee data-size="92px" data-skinimage='https://api.skins.tw/api/resolve/skins/mouse'></render-tee>
 ```
 
 #### Automatic Rendering (With coloring)
 
 ```html
-<render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-bodycolor='13149440' data-feetcolor='255' data-coloringmode='code'></render-tee>
+<render-tee data-size="92px" data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-bodycolor='13149440' data-feetcolor='255' data-coloringmode='code'></render-tee>
 
 ```
 
 #### You can also make eyes look at the mouse
 
 ```html
-<render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-lookmouse="true"></render-tee>
+<render-tee data-size="92px" data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-lookmouse="true"></render-tee>
 
 ```
 Note: The value of data-lookmouse must be "true" to set it to false you can simply remove the data attribute
@@ -108,7 +111,7 @@ Note: The value of data-lookmouse must be "true" to set it to false you can simp
 #### You can also add an angle to the eyes
 
 ```html
-<render-tee data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-look="90"></render-tee>
+<render-tee data-size="92px" data-skinimage='https://api.skins.tw/api/resolve/skins/mouse' data-look="90"></render-tee>
 
 ```
 Note: The value of data-look is the angle and must be an int
@@ -117,7 +120,7 @@ Note: The value of data-look is the angle and must be an int
 #### Set an attibute with a variable
 
 ```html
-<render-tee [attr.data-skinimage]="variablename" [attr.data-look]="variablename2"></render-tee>
+<render-tee data-size="92px" [attr.data-skinimage]="variablename" [attr.data-look]="variablename2"></render-tee>
 
 ```
 Note: The variable must be declared in the ts component
