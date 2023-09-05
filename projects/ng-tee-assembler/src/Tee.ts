@@ -65,8 +65,8 @@ export class Tee {
         let bodycolor = this.container?.parentElement?.getAttribute('data-bodycolor');
         let feetcolor = this.container?.parentElement?.getAttribute('data-feetcolor');
 
-        if(bodycolor == '' || bodycolor == "-1") bodycolor = null;
-        if(feetcolor == '' || bodycolor == "-1") feetcolor = null;
+        if(bodycolor == '' || bodycolor == '-1') bodycolor = null;
+        if(feetcolor == '' || feetcolor == '-1') feetcolor = null;
 
         if ( bodycolor !== null && feetcolor !== null) {
           await this.getTeeImage(this.container?.parentElement?.getAttribute('data-bodycolor') as string,this.container?.parentElement?.getAttribute('data-feetcolor') as string,this.container?.parentElement?.getAttribute('data-coloringmode') as string);
@@ -205,17 +205,16 @@ export class Tee {
     let byte;
 
     const newWeight = 192;
-    const invOrgWeight = 255 - orgWeight;
     const invNewWeight = 255 - newWeight;
 
     // Find the most common frequence
     for (byte = 0; byte < buffer.length; byte += 4) {
-      
-
+    
       if (buffer[byte + 3] > 128) {
         frequencies[buffer[byte]]++;
       }
     }
+
 
     for (let i = 1; i < 256; i++) {
       
@@ -223,6 +222,8 @@ export class Tee {
         orgWeight = i;
       }
     }
+    
+		const invOrgWeight = 255 - orgWeight
 
     for (byte = 0; byte < buffer.length; byte += 4) {
       

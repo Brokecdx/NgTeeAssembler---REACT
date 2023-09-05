@@ -23,23 +23,21 @@ export class NgTeeAssemblerComponent implements OnInit{
 
       const myTee = new Tee(skinimage, el as HTMLElement);
       let size: string | undefined = (el as HTMLElement).parentElement?.getAttribute("data-size")?.replace("px", "");
-      if(!size) {
-        size = "92";
+      if(size) {
+        (el as HTMLElement).style.fontSize = (parseInt(size)/100).toString() + "px";
+        (el as HTMLElement).style.height = size + "px";
+        (el as HTMLElement).style.width = size + "px";
       }
 
-      (el as HTMLElement).style.fontSize = (parseInt(size)/100).toString() + "px";
-      (el as HTMLElement).style.height = size + "px";
-      (el as HTMLElement).style.width = size + "px";
-    
+      myTee.lookAt(0);
+
       if(lookmouse && lookmouse == "true") {
         myTee.lookAtCursor();
       }else if(look && isDigit(look)){
         myTee.lookAt(parseInt(look));
-      }else{
-        myTee.lookAt(0);
       }
     }
-      
+
   }
 
 }
