@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Tee } from '../Tee';
 import { isDigit } from '../Color';
