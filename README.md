@@ -36,7 +36,7 @@ Pack: `npm run pack-lib`
 `npm i ng-tee-assembler`
 
 
-### Importing inside a component module: 
+### Importing inside a component module (in angular 18 jst import it in the component if standalone): 
 
 ```JS
 
