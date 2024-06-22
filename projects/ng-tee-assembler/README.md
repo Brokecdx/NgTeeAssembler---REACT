@@ -1,3 +1,7 @@
+## LIB BY Samuele Radici (kio) 2023
+
+# THIS LIBRARY IS DEPRECATED AND OBSOLETE, USE [THIS](https://www.npmjs.com/package/@kiocode/ngx-teeassembler) INSTEAD! (Angular 18)
+
 # TeeAssembler 3.0 AngularJS
 
 TeeAssembler 3.0 AngularJS is a script used for coloring a TeeWorlds/DDNet skins image the same way TeeWorlds/DDNet does and rendering the image in your browser using only CSS and TypeScript (and animate the eyes), you can implement it in your AngularJs project using `npm i ng-tee-assembler`.
