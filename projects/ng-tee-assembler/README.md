@@ -1,6 +1,6 @@
 ## LIB BY Samuele Radici (kio) 2023
 
-# THIS LIBRARY IS DEPRECATED AND OBSOLETE, USE [THIS](https://www.npmjs.com/package/@kiocode/ngx-teeassembler) INSTEAD! (Angular 18)
+# THIS LIBRARY IS DEPRECATED AND OBSOLETE, USE [THIS](https://www.npmjs.com/package/@k-i-o/ngx-teeassembler) INSTEAD! (Angular 18)
 
 # TeeAssembler 3.0 AngularJS
 
